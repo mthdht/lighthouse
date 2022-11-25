@@ -6,10 +6,18 @@ const props = defineProps({
   color: {
     type: String,
     default: 'slate',
+    validator(value) {
+      // The value must match one of these strings
+      return ['slate', 'red', 'orange', 'yellow', 'blue'].includes(value);
+    },
   },
   mode: {
     type: String,
     default: 'plain',
+    validator(value) {
+      // The value must match one of these strings
+      return ['plain', 'light', 'outlined'].includes(value);
+    },
   },
 });
 

@@ -19,7 +19,7 @@ import LHButton from './components/LHButton.vue';
   <br />
   <LHButton color="green" mode="outlined">test ok</LHButton>
   <br />
-  <LHButton color="blue" mode="plain">test ok</LHButton>
+  <LHButton color="blue" mode="plain" rounded="normal">test ok</LHButton>
 </template>
 
 <style scoped></style>

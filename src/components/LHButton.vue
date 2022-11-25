@@ -19,9 +19,18 @@ const props = defineProps({
       return ['plain', 'light', 'outlined'].includes(value);
     },
   },
+  rounded: {
+    type: String,
+    default: 'rounded',
+    validator(value) {
+      // The value must match one of these strings
+      return ['none', 'normal', 'medium', 'large'].includes(value);
+    },
+  },
 });
 
 let colorClass = 'slate';
+let roundedClass = 'rounded';
 
 switch (props.color) {
   case 'slate':
@@ -96,11 +105,30 @@ switch (props.color) {
     break;
   default:
     colorClass = 'bg-slate-200 text-slate-800';
+    break;
+}
+
+switch (props.rounded) {
+  case 'none':
+    roundedClass = 'rounded-none';
+    break;
+  case 'normal':
+    roundedClass = 'rounded';
+    break;
+  case 'medium':
+    roundedClass = 'rounded-md';
+    break;
+  case 'large':
+    roundedClass = 'rounded-lg';
+    break;
+  default:
+    roundedClass = 'rounded';
+    break;
 }
 </script>
 
 <template>
-  <button :class="colorClass" class="px-2 py-1">
+  <button :class="[colorClass, roundedClass]" class="px-2 py-1 font-semibold">
     <slot></slot>
   </button>
 </template>

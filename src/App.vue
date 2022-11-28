@@ -2,6 +2,7 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import LHButton from './components/LHButton.vue';
+import LHAlert from './components/LHAlert.vue';
 </script>
 
 <template>
@@ -20,6 +21,10 @@ import LHButton from './components/LHButton.vue';
   <LHButton color="green" mode="outlined">test ok</LHButton>
   <br />
   <LHButton color="blue" mode="plain" rounded="normal">test ok</LHButton>
+
+  <div class="m-4">
+    <LHAlert mode="outlined">test alert ok </LHAlert>
+  </div>
 </template>
 
 <style scoped></style>

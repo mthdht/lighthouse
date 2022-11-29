@@ -58,7 +58,7 @@ switch (props.color) {
       dismissClass = 'hover:bg-slate-300';
     }
     if (props.mode == 'outlined') {
-      colorClass = 'text-slate-800 border-l-4 border-slate-500';
+      colorClass = 'text-slate-800 border-l-4 border-slate-500 bg-slate-50';
       dismissClass = 'hover:bg-slate-200';
     }
     break;
@@ -72,7 +72,7 @@ switch (props.color) {
       dismissClass = 'hover:bg-red-300';
     }
     if (props.mode == 'outlined') {
-      colorClass = 'border-l-4 border-red-500 text-red-600';
+      colorClass = 'border-l-4 border-red-500 text-red-700 bg-red-50';
       dismissClass = 'hover:bg-red-200';
     }
     break;
@@ -87,7 +87,7 @@ switch (props.color) {
       dismissClass = 'hover:bg-orange-300';
     }
     if (props.mode == 'outlined') {
-      colorClass = 'border-l-4 border-orange-500 text-orange-600';
+      colorClass = 'border-l-4 border-orange-500 text-orange-700 bg-orange-50';
       dismissClass = 'hover:bg-orange-200';
     }
     break;
@@ -102,7 +102,7 @@ switch (props.color) {
       dismissClass = 'hover:bg-yellow-300';
     }
     if (props.mode == 'outlined') {
-      colorClass = 'border-l-4 border-yellow-500 text-yellow-600';
+      colorClass = 'border-l-4 border-yellow-500 text-yellow-700 bg-yellow-50';
       dismissClass = 'hover:bg-yellow-200';
     }
     break;
@@ -132,12 +132,13 @@ switch (props.color) {
       dismissClass = 'hover:bg-blue-300';
     }
     if (props.mode == 'outlined') {
-      colorClass = 'border-l-4 border-blue-500 text-blue-600';
+      colorClass = 'border-l-4 border-blue-500 text-blue-700 bg-blue-50';
       dismissClass = 'hover:bg-blue-200';
     }
     break;
   default:
-    colorClass = 'bg-slate-200 text-slate-800';
+    colorClass = 'bg-slate-500 text-slate-800';
+    dismissClass = 'hover:bg-slate-600';
     break;
 }
 

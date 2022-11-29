@@ -27,7 +27,7 @@ import LHAlert from './components/LHAlert.vue';
       >test alert ok
     </LHAlert>
     <LHAlert mode="plain" color="blue">test alert ok </LHAlert>
-    <LHAlert mode="light" color="blue">test alert ok </LHAlert>
+    <LHAlert>test alert ok </LHAlert>
   </div>
 </template>
 

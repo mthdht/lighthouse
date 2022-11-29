@@ -23,9 +23,7 @@ import LHAlert from './components/LHAlert.vue';
   <LHButton color="blue" mode="plain" rounded="normal">test ok</LHButton>
 
   <div class="m-4">
-    <LHAlert mode="outlined" color="blue" :dismissable="false"
-      >test alert ok
-    </LHAlert>
+    <LHAlert mode="outlined" color="blue">test alert ok </LHAlert>
     <LHAlert mode="plain" color="blue">test alert ok </LHAlert>
     <LHAlert>test alert ok </LHAlert>
   </div>

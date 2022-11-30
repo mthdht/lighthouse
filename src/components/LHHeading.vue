@@ -32,43 +32,112 @@ const props = defineProps({
       ].includes(value);
     },
   },
+  level: {
+    type: String,
+    default: '2',
+    validator(value) {
+      return ['1', '2', '3', '4', '5', '6'].includes(value);
+    },
+  },
+  background: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 let colorClass = '';
 let sizeClass = '';
+let tag = 'h' + props.level;
 
 switch (props.color) {
   case 'slate':
-    colorClass = 'text-slate-800';
+    colorClass = props.background
+      ? 'bg-slate-400 text-white'
+      : 'text-slate-800';
     break;
   case 'red':
-    colorClass = 'text-red-800';
+    colorClass = props.background ? 'bg-red-500 text-white' : 'text-red-800';
     break;
 
   case 'orange':
-    colorClass = 'text-orange-800';
+    colorClass = props.background
+      ? 'bg-orange-500 text-white'
+      : 'text-orange-800';
     break;
 
   case 'yellow':
-    colorClass = 'text-yellow-800';
+    colorClass = props.background
+      ? 'bg-yellow-500 text-white'
+      : 'text-yellow-800';
     break;
 
   case 'green':
-    colorClass = 'text-green-800';
+    colorClass = props.background
+      ? 'bg-green-500 text-white'
+      : 'text-green-800';
     break;
 
   case 'blue':
-    colorClass = 'text-blue-800';
+    colorClass = props.background ? 'bg-blue-500 text-white' : 'text-blue-800';
     break;
   default:
-    colorclass = 'text-slate-800';
+    colorclass = props.background
+      ? 'bg-slate-400 text-white'
+      : 'text-slate-800';
+    break;
+}
+
+switch (props.size) {
+  case 'xs':
+    sizeClass = 'text-xs';
+    break;
+  case 'sm':
+    sizeClass = 'text-sm';
+    break;
+  case 'normal':
+    sizeClass = 'test-normal';
+    break;
+  case 'lg':
+    sizeClass = 'text-lg';
+    break;
+  case 'xl':
+    sizeClass = 'text-xl';
+    break;
+  case '2xl':
+    sizeClass = 'text-2xl';
+    break;
+  case '3xl':
+    sizeClass = 'text-3xl';
+    break;
+  case '4xl':
+    sizeClass = 'text-4xl';
+    break;
+  case '5xl':
+    sizeClass = 'text-5xl';
+    break;
+  case '6xl':
+    sizeClass = 'text-6xl';
+    break;
+  case '7xl':
+    sizeclass = '7xl';
+    break;
+  case '8xl':
+    sizeClass = '8xl';
+    break;
+  case '9xl':
+    sizeClass = '9xl';
+    break;
+  default:
+    sizeClass = 'text-normal';
     break;
 }
 </script>
 
 <template>
-  <div class="" v-if="props.level">
-    <h1><slot></slot></h1>
+  <div :class="[sizeClass, colorClass]" class="my-4 py-2 px-4">
+    <component :is="tag">
+      <slot></slot>
+    </component>
   </div>
 </template>
 

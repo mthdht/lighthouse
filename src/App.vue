@@ -3,6 +3,7 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import LHButton from './components/LHButton.vue';
 import LHAlert from './components/LHAlert.vue';
+import LHHeading from './components/LHHeading.vue';
 </script>
 
 <template>
@@ -26,6 +27,7 @@ import LHAlert from './components/LHAlert.vue';
     <LHAlert mode="outlined" color="blue">test alert ok </LHAlert>
     <LHAlert mode="plain" color="blue">test alert ok </LHAlert>
     <LHAlert>test alert ok </LHAlert>
+    <LHHeading level="1" color="red" background> test ok </LHHeading>
   </div>
 </template>
 

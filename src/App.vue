@@ -28,6 +28,7 @@ import LHHeading from './components/LHHeading.vue';
     <LHAlert mode="plain" color="blue">test alert ok </LHAlert>
     <LHAlert>test alert ok </LHAlert>
     <LHHeading level="1" color="red" background> test ok </LHHeading>
+    <LHHeading size="6xl" background no-margin no-padding>test</LHHeading>
   </div>
 </template>
 

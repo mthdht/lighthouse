@@ -43,12 +43,23 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  noMargin: {
+    type: Boolean,
+    default: false,
+  },
+  noPadding: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 let colorClass = '';
 let sizeClass = '';
+let marginClass = props.noMargin ? '' : 'my-4';
+let paddingClass = props.noPadding ? '' : 'py-2 px-4';
 let tag = 'h' + props.level;
 
+console.log(marginClass);
 switch (props.color) {
   case 'slate':
     colorClass = props.background
@@ -134,7 +145,7 @@ switch (props.size) {
 </script>
 
 <template>
-  <div :class="[sizeClass, colorClass]" class="my-4 py-2 px-4">
+  <div :class="[sizeClass, colorClass, marginClass, paddingClass]">
     <component :is="tag">
       <slot></slot>
     </component>

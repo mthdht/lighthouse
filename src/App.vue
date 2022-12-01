@@ -5,6 +5,7 @@ import LHButton from './components/LHButton.vue';
 import LHAlert from './components/LHAlert.vue';
 import LHHeading from './components/LHHeading.vue';
 import LHParagraph from './components/LHParagraph.vue';
+import LHDivider from './components/LHDivider.vue';
 </script>
 
 <template>
@@ -31,6 +32,7 @@ import LHParagraph from './components/LHParagraph.vue';
     <LHHeading level="1" color="red" background> test ok </LHHeading>
     <LHHeading size="6xl" background no-margin no-padding>test</LHHeading>
     <LHParagraph color="green" background> test paragraph</LHParagraph>
+    <LHDivider size="3xl" />
   </div>
 </template>
 

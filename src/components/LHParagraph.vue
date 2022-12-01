@@ -32,13 +32,6 @@ const props = defineProps({
       ].includes(value);
     },
   },
-  level: {
-    type: String,
-    default: '2',
-    validator(value) {
-      return ['1', '2', '3', '4', '5', '6'].includes(value);
-    },
-  },
   background: {
     type: Boolean,
     default: false,
@@ -57,7 +50,6 @@ let colorClass = '';
 let sizeClass = '';
 let marginClass = props.noMargin ? '' : 'my-4';
 let paddingClass = props.noPadding ? '' : 'py-2 px-4';
-let tag = 'h' + props.level;
 
 switch (props.color) {
   case 'slate':
@@ -144,11 +136,9 @@ switch (props.size) {
 </script>
 
 <template>
-  <div :class="[sizeClass, colorClass, marginClass, paddingClass]">
-    <component :is="tag">
-      <slot></slot>
-    </component>
-  </div>
+  <p :class="[sizeClass, colorClass, marginClass, paddingClass]">
+    <slot></slot>
+  </p>
 </template>
 
 <style scoped></style>

@@ -4,6 +4,7 @@
 import LHButton from './components/LHButton.vue';
 import LHAlert from './components/LHAlert.vue';
 import LHHeading from './components/LHHeading.vue';
+import LHParagraph from './components/LHParagraph.vue';
 </script>
 
 <template>
@@ -29,6 +30,7 @@ import LHHeading from './components/LHHeading.vue';
     <LHAlert>test alert ok </LHAlert>
     <LHHeading level="1" color="red" background> test ok </LHHeading>
     <LHHeading size="6xl" background no-margin no-padding>test</LHHeading>
+    <LHParagraph color="green" background> test paragraph</LHParagraph>
   </div>
 </template>
 

@@ -6,6 +6,7 @@ import LHAlert from './components/LHAlert.vue';
 import LHHeading from './components/LHHeading.vue';
 import LHParagraph from './components/LHParagraph.vue';
 import LHDivider from './components/LHDivider.vue';
+import LHTooltip from './components/LHTooltip.vue';
 </script>
 
 <template>
@@ -31,7 +32,15 @@ import LHDivider from './components/LHDivider.vue';
     <LHAlert>test alert ok </LHAlert>
     <LHHeading level="1" color="red" background> test ok </LHHeading>
     <LHHeading size="6xl" background no-margin no-padding>test</LHHeading>
-    <LHParagraph color="green" background> test paragraph</LHParagraph>
+    <LHParagraph>
+      test paragraph with
+      <LHTooltip>
+        a tooltip
+        <template #info> Le text a montrer </template>
+      </LHTooltip>
+
+      autre texte
+    </LHParagraph>
     <LHDivider size="3xl" />
   </div>
 </template>

@@ -41,7 +41,6 @@ import LHTooltip from './components/LHTooltip.vue';
 
       autre texte
     </LHParagraph>
-    <LHDivider size="3xl" />
   </div>
 </template>
 

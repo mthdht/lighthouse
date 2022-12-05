@@ -1,6 +1,8 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
+import { ref } from 'vue';
+import position from '@/utils/popper.js';
 
 const props = defineProps({
   color: {
@@ -12,6 +14,10 @@ const props = defineProps({
     },
   },
 });
+
+const trigger = ref();
+
+const popper = ref();
 
 let colorClass = '';
 
@@ -52,15 +58,38 @@ switch (props.color) {
       : 'text-slate-800';
     break;
 }
+
+console.log(trigger);
 </script>
 
 <template>
-  <div class="relative inline-block">
+  <div class="relative inline-block" ref="trigger">
     <slot></slot>
-    <div class="absolute -top-10 left-0 w-30">
+    <div
+      class="
+        absolute
+        whitespace-nowrap
+        px-2
+        py-1
+        bg-slate-500
+        text-white
+        rounded
+      "
+      ref="popper"
+    >
       <slot name="info"></slot>
     </div>
   </div>
+  <!--
+  <div class="inline-block">
+    <div class="inline-block" ref="trigger">
+      <slot></slot>
+    </div>
+    <div class="absolute" ref="popper">
+      <slot name="info"></slot>
+    </div>
+  </div>
+  -->
 </template>
 
 <style scoped></style>

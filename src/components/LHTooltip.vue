@@ -1,7 +1,7 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import position from '@/utils/popper.js';
 
 const props = defineProps({
@@ -11,6 +11,13 @@ const props = defineProps({
     validator(value) {
       // The value must match one of these strings
       return ['slate', 'red', 'orange', 'yellow', 'blue'].includes(value);
+    },
+  },
+  placement: {
+    type: String,
+    default: 'auto',
+    validator(value) {
+      return ['auto', 'top', 'left', 'right', 'bottom'].includes(value);
     },
   },
 });
@@ -23,43 +30,35 @@ let colorClass = '';
 
 switch (props.color) {
   case 'slate':
-    colorClass = props.background
-      ? 'bg-slate-400 text-white'
-      : 'text-slate-800';
+    colorClass = 'bg-slate-400 text-white';
     break;
   case 'red':
-    colorClass = props.background ? 'bg-red-500 text-white' : 'text-red-800';
+    colorClass = 'bg-red-500 text-white';
     break;
 
   case 'orange':
-    colorClass = props.background
-      ? 'bg-orange-500 text-white'
-      : 'text-orange-800';
+    colorClass = 'bg-orange-500 text-white';
     break;
 
   case 'yellow':
-    colorClass = props.background
-      ? 'bg-yellow-500 text-white'
-      : 'text-yellow-800';
+    colorClass = 'bg-yellow-500 text-white';
     break;
 
   case 'green':
-    colorClass = props.background
-      ? 'bg-green-500 text-white'
-      : 'text-green-800';
+    colorClass = 'bg-green-500 text-white';
     break;
 
   case 'blue':
-    colorClass = props.background ? 'bg-blue-500 text-white' : 'text-blue-800';
+    colorClass = 'bg-blue-500 text-white';
     break;
   default:
-    colorclass = props.background
-      ? 'bg-slate-400 text-white'
-      : 'text-slate-800';
+    colorclass = 'bg-slate-400 text-white';
     break;
 }
 
-console.log(trigger);
+onMounted(() => {
+  position(trigger, popper);
+});
 </script>
 
 <template>

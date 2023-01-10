@@ -57,7 +57,9 @@ switch (props.color) {
 }
 
 onMounted(() => {
-  position(trigger, popper);
+  position(trigger, popper, {
+    placement: 'top',
+  });
 });
 </script>
 

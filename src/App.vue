@@ -11,6 +11,14 @@ import LHTooltip from './components/LHTooltip.vue';
 
 <template>
   <h1>test components</h1>
+  <h1>test components</h1>
+  <h1>test components</h1>
+  <h1>test components</h1>
+  <h1>test components</h1>
+  <h1>test components</h1>
+  <h1>test components</h1>
+  <h1>test components</h1>
+  <h1>test components</h1>
 
   <div class="m-4">
     <LHParagraph>

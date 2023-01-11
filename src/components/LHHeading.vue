@@ -1,3 +1,11 @@
+<template>
+  <div :class="[sizeClass, colorClass, marginClass, paddingClass]">
+    <component :is="tag">
+      <slot></slot>
+    </component>
+  </div>
+</template>
+
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
@@ -142,13 +150,5 @@ switch (props.size) {
     break;
 }
 </script>
-
-<template>
-  <div :class="[sizeClass, colorClass, marginClass, paddingClass]">
-    <component :is="tag">
-      <slot></slot>
-    </component>
-  </div>
-</template>
 
 <style scoped></style>

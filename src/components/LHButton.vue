@@ -1,3 +1,9 @@
+<template>
+  <button :class="[colorClass, roundedClass]" class="px-2 py-1 font-semibold">
+    <slot></slot>
+  </button>
+</template>
+
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
@@ -126,11 +132,5 @@ switch (props.rounded) {
     break;
 }
 </script>
-
-<template>
-  <button :class="[colorClass, roundedClass]" class="px-2 py-1 font-semibold">
-    <slot></slot>
-  </button>
-</template>
 
 <style scoped></style>

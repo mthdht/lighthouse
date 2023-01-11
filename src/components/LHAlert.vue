@@ -1,3 +1,20 @@
+<template>
+  <div
+    v-show="open"
+    :class="[colorClass, roundedClass]"
+    class="p-4 font-semibold shadow-md relative"
+  >
+    <font-awesome-icon
+      v-if="props.dismissable"
+      @click="close"
+      icon="fa-solid fa-xmark"
+      class="absolute right-4 w-5 h-5 rounded p-1 cursor-pointer"
+      :class="dismissClass"
+    />
+    <slot></slot>
+  </div>
+</template>
+
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
@@ -160,22 +177,5 @@ switch (props.rounded) {
     break;
 }
 </script>
-
-<template>
-  <div
-    v-show="open"
-    :class="[colorClass, roundedClass]"
-    class="p-4 font-semibold shadow-md relative"
-  >
-    <font-awesome-icon
-      v-if="props.dismissable"
-      @click="close"
-      icon="fa-solid fa-xmark"
-      class="absolute right-4 w-5 h-5 rounded p-1 cursor-pointer"
-      :class="dismissClass"
-    />
-    <slot></slot>
-  </div>
-</template>
 
 <style scoped></style>

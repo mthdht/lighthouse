@@ -1,3 +1,21 @@
+<template>
+  <div
+    class="relative inline-block bg-red-500"
+    ref="trigger"
+    @mouseenter="showTooltip = true"
+    @mouseleave="showTooltip = false"
+  >
+    <slot></slot>
+    <div
+      class="absolute whitespace-nowrap px-2 py-1 text-white rounded z-10"
+      :class="[colorClass, showTooltip ? 'visible' : 'invisible']"
+      ref="popper"
+    >
+      <slot name="info"></slot>
+    </div>
+  </div>
+</template>
+
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
@@ -64,23 +82,5 @@ onMounted(() => {
   });
 });
 </script>
-
-<template>
-  <div
-    class="relative inline-block bg-red-500"
-    ref="trigger"
-    @mouseenter="showTooltip = true"
-    @mouseleave="showTooltip = false"
-  >
-    <slot></slot>
-    <div
-      class="absolute whitespace-nowrap px-2 py-1 text-white rounded z-10"
-      :class="[colorClass, showTooltip ? 'visible' : 'invisible']"
-      ref="popper"
-    >
-      <slot name="info"></slot>
-    </div>
-  </div>
-</template>
 
 <style scoped></style>

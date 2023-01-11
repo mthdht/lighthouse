@@ -7,7 +7,7 @@ export default function position(
   popper,
   options = { placement: 'top' }
 ) {
-  console.log(options, hasPlace('top', trigger, popper));
+  console.log(hasPlace(options.placement, trigger, popper));
   if (
     options.placement != 'auto' &&
     hasPlace(options.placement, trigger, popper)
@@ -48,12 +48,45 @@ function placement(direction, trigger, popper) {
       break;
     case 'bottom':
       placementBottom(trigger, popper);
+      break;
+    case 'left':
+      placementLeft(trigger, popper);
+      break;
   }
 }
 
 function placementTop(trigger, popper) {
+  if (
+    trigger.value.getBoundingClientRect().width >
+    popper.value.getBoundingClientRect().width
+  ) {
+    popper.value.style.left =
+      (trigger.value.getBoundingClientRect().width -
+        popper.value.getBoundingClientRect().width) /
+        2 +
+      'px';
+  } else {
+    popper.value.style.left =
+      '-' +
+      (popper.value.getBoundingClientRect().width -
+        trigger.value.getBoundingClientRect().width) /
+        2 +
+      'px';
+  }
   popper.value.style.top =
-    '-' + (trigger.value.getBoundingClientRect().height + 10) + 'px';
+    '-' + (trigger.value.getBoundingClientRect().height + 15) + 'px';
+}
+
+function placementBottom(trigger, popper) {
+  popper.value.style.top =
+    trigger.value.getBoundingClientRect().height + 10 + 'px';
+  popper.value.style.left =
+    '-' + trigger.value.getBoundingClientRect().width / 2 + 'px';
+}
+
+function placementLeft(trigger, popper) {
+  popper.value.style.top =
+    trigger.value.getBoundingClientRect().height + 10 + 'px';
   popper.value.style.left =
     '-' + trigger.value.getBoundingClientRect().width / 2 + 'px';
 }

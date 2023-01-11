@@ -22,10 +22,10 @@ import LHTooltip from './components/LHTooltip.vue';
 
   <div class="m-4">
     <LHParagraph>
-      test paragraph with
+      test paragraph with fkhjghhj hgh gh hg h hgh gjgjhgjhdfjhdfdlfdsfsdfd
       <LHTooltip>
         a tooltip
-        <template #info> Le text a montrer </template>
+        <template #info> Le text a montrer encore plus long </template>
       </LHTooltip>
 
       autre texte

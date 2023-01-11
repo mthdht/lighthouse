@@ -64,7 +64,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="relative inline-block" ref="trigger">
+  <div class="relative inline-block bg-red-500" ref="trigger">
     <slot></slot>
     <div
       class="
@@ -81,16 +81,6 @@ onMounted(() => {
       <slot name="info"></slot>
     </div>
   </div>
-  <!--
-  <div class="inline-block">
-    <div class="inline-block" ref="trigger">
-      <slot></slot>
-    </div>
-    <div class="absolute" ref="popper">
-      <slot name="info"></slot>
-    </div>
-  </div>
-  -->
 </template>
 
 <style scoped></style>

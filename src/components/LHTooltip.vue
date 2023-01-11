@@ -60,7 +60,7 @@ switch (props.color) {
 
 onMounted(() => {
   position(trigger, popper, {
-    placement: 'auto',
+    placement: props.placement,
   });
 });
 </script>

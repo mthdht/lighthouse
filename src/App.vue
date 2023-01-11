@@ -30,7 +30,7 @@ import LHTooltip from './components/LHTooltip.vue';
 
     <LHParagraph>
       test paragraph with fkhjghhj hgh gh hg h hgh
-      <LHTooltip>
+      <LHTooltip placement="left" color="blue">
         a tooltip a montrer encore plus long
         <template #info> Le text </template>
       </LHTooltip>

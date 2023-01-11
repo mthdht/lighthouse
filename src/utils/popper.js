@@ -79,7 +79,7 @@ function placementTop(trigger, popper) {
       2 +
     'px';
   popper.value.style.top =
-    '-' + (trigger.value.getBoundingClientRect().height + 10) + 'px';
+    '-' + (trigger.value.getBoundingClientRect().height + 15) + 'px';
 }
 
 function placementBottom(trigger, popper) {
@@ -89,7 +89,7 @@ function placementBottom(trigger, popper) {
       2 +
     'px';
   popper.value.style.top =
-    trigger.value.getBoundingClientRect().height + 10 + 'px';
+    trigger.value.getBoundingClientRect().height + 15 + 'px';
 }
 
 function placementLeft(trigger, popper) {
@@ -99,7 +99,7 @@ function placementLeft(trigger, popper) {
       2 +
     'px';
   popper.value.style.left =
-    '-' + (popper.value.getBoundingClientRect().width + 10) + 'px';
+    '-' + (popper.value.getBoundingClientRect().width + 15) + 'px';
 }
 
 function placementRight(trigger, popper) {
@@ -109,5 +109,5 @@ function placementRight(trigger, popper) {
       2 +
     'px';
   popper.value.style.left =
-    trigger.value.getBoundingClientRect().width + 10 + 'px';
+    trigger.value.getBoundingClientRect().width + 15 + 'px';
 }

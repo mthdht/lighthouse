@@ -26,6 +26,8 @@ const trigger = ref();
 
 const popper = ref();
 
+const showTooltip = ref(false);
+
 let colorClass = '';
 
 switch (props.color) {
@@ -64,11 +66,16 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="relative inline-block bg-red-500" ref="trigger">
+  <div
+    class="relative inline-block bg-red-500"
+    ref="trigger"
+    @mouseenter="showTooltip = true"
+    @mouseleave="showTooltip = false"
+  >
     <slot></slot>
     <div
       class="absolute whitespace-nowrap px-2 py-1 text-white rounded z-10"
-      :class="colorClass"
+      :class="[colorClass, showTooltip ? 'visible' : 'invisible']"
       ref="popper"
     >
       <slot name="info"></slot>

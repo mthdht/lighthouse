@@ -7,6 +7,7 @@ export default function position(
   popper,
   options = { placement: 'auto' }
 ) {
+  console.log(window.getComputedStyle(popper.value));
   if (options.placement == 'auto') {
     hasPlace('top', trigger, popper)
       ? placementTop(trigger, popper)

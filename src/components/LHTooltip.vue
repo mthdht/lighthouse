@@ -58,7 +58,7 @@ switch (props.color) {
 
 onMounted(() => {
   position(trigger, popper, {
-    placement: 'right',
+    placement: 'auto',
   });
 });
 </script>
@@ -67,16 +67,8 @@ onMounted(() => {
   <div class="relative inline-block bg-red-500" ref="trigger">
     <slot></slot>
     <div
-      class="
-        absolute
-        whitespace-nowrap
-        px-2
-        py-1
-        bg-slate-500
-        text-white
-        rounded
-        z-10
-      "
+      class="absolute whitespace-nowrap px-2 py-1 text-white rounded z-10"
+      :class="colorClass"
       ref="popper"
     >
       <slot name="info"></slot>

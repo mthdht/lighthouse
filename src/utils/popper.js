@@ -5,14 +5,28 @@
 export default function position(
   trigger,
   popper,
-  options = { placement: 'top' }
+  options = { placement: 'auto' }
 ) {
-  console.log(hasPlace(options.placement, trigger, popper));
-  if (
-    options.placement != 'auto' &&
-    hasPlace(options.placement, trigger, popper)
-  ) {
+  if (options.placement == 'auto') {
+    hasPlace('top', trigger, popper)
+      ? placementTop(trigger, popper)
+      : hasPlace('bottom', trigger, popper)
+      ? placementBottom(trigger, popper)
+      : hasPlace('right', trigger, popper)
+      ? placementRight(trigger, popper)
+      : hasPlace('left', trigger, popper)
+      ? placementLeft(trigger, popper)
+      : (placementTop(trigger, popper),
+        console.warn(
+          'Be carreful, there is no place for the tooltip to show !'
+        ));
+  } else {
     placement(options.placement, trigger, popper);
+    hasPlace(options.placement, trigger, popper)
+      ? null
+      : console.warn(
+          'Be carreful, there is no place for the tooltip to show !'
+        );
   }
 }
 
@@ -21,22 +35,22 @@ function hasPlace(direction, trigger, popper) {
     case 'top':
       return (
         trigger.value.getBoundingClientRect().top >
-        popper.value.getBoundingClientRect().height + 50
+        popper.value.getBoundingClientRect().height + 20
       );
     case 'bottom':
       return (
         window.innerHeight - trigger.value.getBoundingClientRect().bottom >
-        popper.value.getBoundingClientRect().height + 50
+        popper.value.getBoundingClientRect().height + 20
       );
     case 'left':
       return (
         trigger.value.getBoundingClientRect().left >
-        popper.value.getBoundingClientRect().width + 50
+        popper.value.getBoundingClientRect().width + 20
       );
     case 'right':
       return (
         window.innerWidth - trigger.value.getBoundingClientRect().right >
-        popper.value.getBoundingClientRect().width + 50
+        popper.value.getBoundingClientRect().width + 20
       );
   }
 }

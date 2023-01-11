@@ -58,7 +58,7 @@ switch (props.color) {
 
 onMounted(() => {
   position(trigger, popper, {
-    placement: 'top',
+    placement: 'right',
   });
 });
 </script>
@@ -75,6 +75,7 @@ onMounted(() => {
         bg-slate-500
         text-white
         rounded
+        z-10
       "
       ref="popper"
     >

@@ -52,41 +52,48 @@ function placement(direction, trigger, popper) {
     case 'left':
       placementLeft(trigger, popper);
       break;
+    case 'right':
+      placementRight(trigger, popper);
+      break;
   }
 }
 
 function placementTop(trigger, popper) {
-  if (
-    trigger.value.getBoundingClientRect().width >
-    popper.value.getBoundingClientRect().width
-  ) {
-    popper.value.style.left =
-      (trigger.value.getBoundingClientRect().width -
-        popper.value.getBoundingClientRect().width) /
-        2 +
-      'px';
-  } else {
-    popper.value.style.left =
-      '-' +
-      (popper.value.getBoundingClientRect().width -
-        trigger.value.getBoundingClientRect().width) /
-        2 +
-      'px';
-  }
+  popper.value.style.left =
+    (trigger.value.getBoundingClientRect().width -
+      popper.value.getBoundingClientRect().width) /
+      2 +
+    'px';
   popper.value.style.top =
-    '-' + (trigger.value.getBoundingClientRect().height + 15) + 'px';
+    '-' + (trigger.value.getBoundingClientRect().height + 10) + 'px';
 }
 
 function placementBottom(trigger, popper) {
+  popper.value.style.left =
+    (trigger.value.getBoundingClientRect().width -
+      popper.value.getBoundingClientRect().width) /
+      2 +
+    'px';
   popper.value.style.top =
     trigger.value.getBoundingClientRect().height + 10 + 'px';
-  popper.value.style.left =
-    '-' + trigger.value.getBoundingClientRect().width / 2 + 'px';
 }
 
 function placementLeft(trigger, popper) {
   popper.value.style.top =
-    trigger.value.getBoundingClientRect().height + 10 + 'px';
+    (trigger.value.getBoundingClientRect().height -
+      popper.value.getBoundingClientRect().height) /
+      2 +
+    'px';
   popper.value.style.left =
-    '-' + trigger.value.getBoundingClientRect().width / 2 + 'px';
+    '-' + (popper.value.getBoundingClientRect().width + 10) + 'px';
+}
+
+function placementRight(trigger, popper) {
+  popper.value.style.top =
+    (trigger.value.getBoundingClientRect().height -
+      popper.value.getBoundingClientRect().height) /
+      2 +
+    'px';
+  popper.value.style.left =
+    trigger.value.getBoundingClientRect().width + 10 + 'px';
 }

@@ -2,7 +2,7 @@
  * Function that help positionning the the popper element in tooltip component
  */
 
-export default function position(
+export default function tooltip(
   trigger,
   popper,
   options = { placement: 'auto' }
@@ -34,23 +34,23 @@ function hasPlace(direction, trigger, popper) {
   switch (direction) {
     case 'top':
       return (
-        trigger.value.getBoundingClientRect().top >
-        popper.value.getBoundingClientRect().height + 20
+        trigger.getBoundingClientRect().top >
+        popper.getBoundingClientRect().height + 20
       );
     case 'bottom':
       return (
-        window.innerHeight - trigger.value.getBoundingClientRect().bottom >
-        popper.value.getBoundingClientRect().height + 20
+        window.innerHeight - trigger.getBoundingClientRect().bottom >
+        popper.getBoundingClientRect().height + 20
       );
     case 'left':
       return (
-        trigger.value.getBoundingClientRect().left >
-        popper.value.getBoundingClientRect().width + 20
+        trigger.getBoundingClientRect().left >
+        popper.getBoundingClientRect().width + 20
       );
     case 'right':
       return (
-        window.innerWidth - trigger.value.getBoundingClientRect().right >
-        popper.value.getBoundingClientRect().width + 20
+        window.innerWidth - trigger.getBoundingClientRect().right >
+        popper.getBoundingClientRect().width + 20
       );
   }
 }
@@ -75,41 +75,37 @@ function placement(direction, trigger, popper) {
 }
 
 function placementTop(trigger, popper) {
-  popper.value.style.left =
-    (trigger.value.getBoundingClientRect().width -
-      popper.value.getBoundingClientRect().width) /
+  popper.style.left =
+    (trigger.getBoundingClientRect().width -
+      popper.getBoundingClientRect().width) /
       2 +
     'px';
-  popper.value.style.top =
-    '-' + (trigger.value.getBoundingClientRect().height + 15) + 'px';
+  popper.style.top = '-' + (trigger.getBoundingClientRect().height + 15) + 'px';
 }
 
 function placementBottom(trigger, popper) {
-  popper.value.style.left =
-    (trigger.value.getBoundingClientRect().width -
-      popper.value.getBoundingClientRect().width) /
+  popper.style.left =
+    (trigger.getBoundingClientRect().width -
+      popper.getBoundingClientRect().width) /
       2 +
     'px';
-  popper.value.style.top =
-    trigger.value.getBoundingClientRect().height + 15 + 'px';
+  popper.value.style.top = trigger.getBoundingClientRect().height + 15 + 'px';
 }
 
 function placementLeft(trigger, popper) {
-  popper.value.style.top =
-    (trigger.value.getBoundingClientRect().height -
-      popper.value.getBoundingClientRect().height) /
+  popper.style.top =
+    (trigger.getBoundingClientRect().height -
+      popper.getBoundingClientRect().height) /
       2 +
     'px';
-  popper.value.style.left =
-    '-' + (popper.value.getBoundingClientRect().width + 15) + 'px';
+  popper.style.left = '-' + (popper.getBoundingClientRect().width + 15) + 'px';
 }
 
 function placementRight(trigger, popper) {
   popper.value.style.top =
-    (trigger.value.getBoundingClientRect().height -
-      popper.value.getBoundingClientRect().height) /
+    (trigger.getBoundingClientRect().height -
+      popper.getBoundingClientRect().height) /
       2 +
     'px';
-  popper.value.style.left =
-    trigger.value.getBoundingClientRect().width + 15 + 'px';
+  popper.style.left = trigger.getBoundingClientRect().width + 15 + 'px';
 }

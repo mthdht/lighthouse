@@ -12,11 +12,6 @@ import LHAvatar from './components/LHAvatar.vue';
 
 <template>
   <h1>test components</h1>
-  <h1>test components</h1>
-  <h1>test components</h1>
-  <h1>test components</h1>
-  <h1>test components</h1>
-  <h1>test components</h1>
 
   <div class="m-4">
     <LHParagraph>
@@ -32,13 +27,15 @@ import LHAvatar from './components/LHAvatar.vue';
     <LHParagraph>
       <LHAvatar size="6xl"></LHAvatar>
       test paragraph with fkhjghhj hgh gh hg h hgh
-      <LHTooltip placement="left" color="blue">
+      <LHTooltip placement="auto" color="blue">
         a tooltip a montrer encore plus long
         <template #info> Le text </template>
       </LHTooltip>
 
       autre texte
     </LHParagraph>
+
+    <LHButton hover mode="outlined" color="blue">un boutton</LHButton>
   </div>
 </template>
 

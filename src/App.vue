@@ -8,6 +8,8 @@ import LHParagraph from './components/LHParagraph.vue';
 import LHDivider from './components/LHDivider.vue';
 import LHTooltip from './components/LHTooltip.vue';
 import LHAvatar from './components/LHAvatar.vue';
+import LHDropdown from './components/LHDropdown.vue';
+import LHDropdownItem from './components/LHDropdownItem.vue';
 </script>
 
 <template>
@@ -36,6 +38,10 @@ import LHAvatar from './components/LHAvatar.vue';
     </LHParagraph>
 
     <LHButton hover mode="outlined" color="blue">un boutton</LHButton>
+
+    <LHDropdown class="mt-4">
+      <template #label>appuyer pour ouvrir</template>
+    </LHDropdown>
   </div>
 </template>
 

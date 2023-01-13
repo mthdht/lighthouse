@@ -25,10 +25,9 @@ const open = ref(true);
 const props = defineProps({
   color: {
     type: String,
-    default: 'slate',
     validator(value) {
       // The value must match one of these strings
-      return ['slate', 'red', 'orange', 'yellow', 'blue'].includes(value);
+      return ['', 'slate', 'red', 'orange', 'yellow', 'blue'].includes(value);
     },
   },
   mode: {
@@ -36,12 +35,12 @@ const props = defineProps({
     default: 'plain',
     validator(value) {
       // The value must match one of these strings
-      return ['plain', 'light', 'outlined'].includes(value);
+      return ['', 'plain', 'light', 'outlined'].includes(value);
     },
   },
   rounded: {
     type: String,
-    default: 'rounded',
+    default: 'normal',
     validator(value) {
       // The value must match one of these strings
       return ['none', 'normal', 'medium', 'large'].includes(value);
@@ -50,9 +49,6 @@ const props = defineProps({
   dismissable: {
     type: Boolean,
     default: true,
-    valiodator(value) {
-      return ['true', 'false'].includes(value);
-    },
   },
 });
 
@@ -154,8 +150,11 @@ switch (props.color) {
     }
     break;
   default:
-    colorClass = 'bg-slate-500 text-slate-800';
-    dismissClass = 'hover:bg-slate-600';
+    colorClass = 'bg-slate-100 text-slate-800';
+    dismissClass = 'hover:bg-slate-200';
+    if (props.mode == 'outlined') {
+      colorClass += ' border-l-4 border-slate-500';
+    }
     break;
 }
 

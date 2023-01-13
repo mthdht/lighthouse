@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative inline-block bg-red-500"
+    class="relative inline-block"
     ref="trigger"
     @mouseenter="showTooltip = true"
     @mouseleave="showTooltip = false"
@@ -50,7 +50,7 @@ let colorClass = '';
 
 switch (props.color) {
   case 'slate':
-    colorClass = 'bg-slate-400 text-white';
+    colorClass = 'bg-slate-500 text-white';
     break;
   case 'red':
     colorClass = 'bg-red-500 text-white';
@@ -72,7 +72,7 @@ switch (props.color) {
     colorClass = 'bg-blue-500 text-white';
     break;
   default:
-    colorclass = 'bg-slate-400 text-white';
+    colorclass = 'bg-slate-700 text-white';
     break;
 }
 

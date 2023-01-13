@@ -1,10 +1,13 @@
 <template>
   <div :class="[]" class="relative">
-    <div class="dropdown-button bg-slate-500 px-4 py-2">
+    <LHButton hover class="dropdown-button px-4 py-2" :color="props.color">
       <slot name="label">{{ props.label ?? 'Add a label' }}</slot>
-    </div>
+    </LHButton>
 
-    <div class="dropdown-items mt-2 bg-slate-400 absolute whitespace-nowrap">
+    <div
+      class="dropdown-items mt-2 absolute whitespace-nowrap"
+      :class="itemClass"
+    >
       <slot></slot>
     </div>
   </div>
@@ -15,11 +18,11 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 
 import LHDropdownItem from './LHDropdownItem.vue';
+import LHButton from './LHButton.vue';
 
 const props = defineProps({
   color: {
     type: String,
-    default: 'slate',
     validator(value) {
       // The value must match one of these strings
       return ['slate', 'red', 'orange', 'yellow', 'blue'].includes(value);
@@ -30,33 +33,34 @@ const props = defineProps({
   },
 });
 
-let colorClass = '';
+let labelClass = '';
+let itemClass = '';
 
 switch (props.color) {
   case 'slate':
-    colorClass = 'bg-slate-500';
+    itemClass = 'bg-slate-300';
     break;
   case 'red':
-    colorClass = 'bg-red-500';
+    itemClass = 'bg-red-300';
     break;
 
   case 'orange':
-    colorClass = 'bg-orange-500';
+    itemClass = 'bg-orange-300';
     break;
 
   case 'yellow':
-    colorClass = 'bg-yellow-500';
+    itemClass = 'bg-yellow-300';
     break;
 
   case 'green':
-    colorClass = 'bg-green-500';
+    itemClass = 'bg-green-300';
     break;
 
   case 'blue':
-    colorClass = 'bg-blue-500';
+    itemClass = 'bg-blue-300';
     break;
   default:
-    colorclass = 'bg-slate-500';
+    itemClass = 'bg-slate-50';
     break;
 }
 </script>

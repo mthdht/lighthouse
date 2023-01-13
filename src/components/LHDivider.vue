@@ -9,7 +9,6 @@
 const props = defineProps({
   color: {
     type: String,
-    default: 'slate',
     validator(value) {
       // The value must match one of these strings
       return ['slate', 'red', 'orange', 'yellow', 'blue'].includes(value);
@@ -51,7 +50,7 @@ switch (props.color) {
     colorClass = 'bg-blue-500';
     break;
   default:
-    colorclass = 'bg-slate-500';
+    colorclass = 'bg-slate-800';
     break;
 }
 

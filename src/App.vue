@@ -15,10 +15,23 @@ import LHDropdownItem from './components/LHDropdownItem.vue';
 <template>
   <h1>test components</h1>
 
+  <LHAlert color="slate" mode="outlined"> merci </LHAlert>
+  <LHAlert color="red" mode="outlined"> merci </LHAlert>
+  <LHAlert color="orange" mode="outlined"> merci </LHAlert>
+  <LHAlert color="yellow" mode="outlined"> merci </LHAlert>
+  <LHAlert color="green" mode="outlined"> merci </LHAlert>
+  <LHAlert color="blue" mode="outlined"> merci </LHAlert>
+  <LHAlert color="" mode="outlined"> merci </LHAlert>
+
+  <p>
+    dfg dfgfdgfgf gdfg <LHTooltip>ok</LHTooltip>
+    <LHButton hover>ookodfr</LHButton>
+  </p>
+
   <div class="m-4 flex justify-around">
     <LHButton hover mode="outlined" color="blue">un boutton</LHButton>
 
-    <LHDropdown class="">
+    <LHDropdown class="" color="orange">
       <template #label>it works!</template>
 
       <LHDropdownItem>Un item</LHDropdownItem>

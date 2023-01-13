@@ -11,7 +11,6 @@
 const props = defineProps({
   color: {
     type: String,
-    default: 'slate',
     validator(value) {
       // The value must match one of these strings
       return ['slate', 'red', 'orange', 'yellow', 'blue'].includes(value);
@@ -41,12 +40,11 @@ const props = defineProps({
 
 let colorClass = 'slate';
 let roundedClass = 'rounded';
-console.log(props.hover);
 
 switch (props.color) {
   case 'slate':
     if (props.mode == 'plain') {
-      colorClass = 'bg-slate-300 text-slate-800';
+      colorClass = 'bg-slate-500 text-white';
       props.hover ? (colorClass += ' hover:bg-slate-400') : '';
     }
     if (props.mode == 'light') {
@@ -76,7 +74,7 @@ switch (props.color) {
   case 'orange':
     if (props.mode == 'plain') {
       colorClass = 'bg-orange-500 text-white';
-      props.hover ? (colorClass += ' hover:bg-orange-500') : '';
+      props.hover ? (colorClass += ' hover:bg-orange-600') : '';
     }
     if (props.mode == 'light') {
       colorClass = 'bg-orange-200 text-orange-900';
@@ -137,8 +135,8 @@ switch (props.color) {
     }
     break;
   default:
-    colorClass = 'bg-slate-200 text-slate-800';
-    props.hover ? (colorClass += ' hover:bg-slate-300') : '';
+    colorClass = 'bg-slate-100 text-slate-800';
+    props.hover ? (colorClass += ' hover:bg-slate-200') : '';
     break;
 }
 

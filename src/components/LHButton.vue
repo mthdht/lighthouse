@@ -26,7 +26,7 @@ const props = defineProps({
   },
   rounded: {
     type: String,
-    default: 'rounded',
+    default: 'none',
     validator(value) {
       // The value must match one of these strings
       return ['none', 'normal', 'medium', 'large'].includes(value);

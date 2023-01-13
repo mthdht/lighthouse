@@ -31,9 +31,7 @@ import LHDropdownItem from './components/LHDropdownItem.vue';
   <div class="m-4 flex justify-around">
     <LHButton hover mode="outlined" color="blue">un boutton</LHButton>
 
-    <LHDropdown class="" color="orange">
-      <template #label>it works!</template>
-
+    <LHDropdown class="" color="orange" label="fonctionne" rounded margin>
       <LHDropdownItem>Un item</LHDropdownItem>
       <LHDropdownItem>Un item 2</LHDropdownItem>
       <LHDropdownItem>Un item 3 fjhjkgh jghjg </LHDropdownItem>

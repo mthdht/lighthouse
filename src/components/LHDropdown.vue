@@ -1,12 +1,18 @@
 <template>
-  <div :class="[]" class="relative">
-    <LHButton hover class="dropdown-button px-4 py-2" :color="props.color">
+  <div class="relative">
+    <LHButton
+      hover
+      class="dropdown-button px-4 py-2"
+      :color="props.color"
+      :class="labelClass"
+      :rounded="props.rounded && props.margin ? 'rounded' : ''"
+    >
       <slot name="label">{{ props.label ?? 'Add a label' }}</slot>
     </LHButton>
 
     <div
-      class="dropdown-items mt-2 absolute whitespace-nowrap"
-      :class="itemClass"
+      class="dropdown-items absolute whitespace-nowrap"
+      :class="[colorClass, itemClass]"
     >
       <slot></slot>
     </div>
@@ -17,6 +23,7 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 
+import { computed } from 'vue';
 import LHDropdownItem from './LHDropdownItem.vue';
 import LHButton from './LHButton.vue';
 
@@ -31,36 +38,54 @@ const props = defineProps({
   label: {
     type: String,
   },
+  rounded: {
+    type: Boolean,
+    default: false,
+  },
+  margin: {
+    type: Boolean,
+  },
 });
 
-let labelClass = '';
-let itemClass = '';
+const labelClass = computed(() => {
+  return props.rounded && !props.margin ? 'rounded-t' : '';
+});
+
+const itemClass = computed(() => {
+  return props.rounded && !props.margin
+    ? 'rounded-b'
+    : props.rounded && props.margin
+    ? 'rounded mt-4'
+    : '';
+});
+
+let colorClass = '';
 
 switch (props.color) {
   case 'slate':
-    itemClass = 'bg-slate-300';
+    colorClass = 'bg-slate-300';
     break;
   case 'red':
-    itemClass = 'bg-red-300';
+    colorClass = 'bg-red-300';
     break;
 
   case 'orange':
-    itemClass = 'bg-orange-300';
+    colorClass = 'bg-orange-300';
     break;
 
   case 'yellow':
-    itemClass = 'bg-yellow-300';
+    colorClass = 'bg-yellow-300';
     break;
 
   case 'green':
-    itemClass = 'bg-green-300';
+    colorClass = 'bg-green-300';
     break;
 
   case 'blue':
-    itemClass = 'bg-blue-300';
+    colorClass = 'bg-blue-300';
     break;
   default:
-    itemClass = 'bg-slate-50';
+    colorClass = 'bg-slate-50';
     break;
 }
 </script>

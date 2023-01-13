@@ -1,10 +1,10 @@
 <template>
-  <div :class="[colorClass]">
-    <div class="dropdown-button">
-      <slot name="label">Please add a slot to the component</slot>
+  <div :class="[]" class="relative">
+    <div class="dropdown-button bg-slate-500 px-4 py-2">
+      <slot name="label">{{ props.label ?? 'Add a label' }}</slot>
     </div>
 
-    <div class="dropdown-items">
+    <div class="dropdown-items mt-2 bg-slate-400 absolute whitespace-nowrap">
       <slot></slot>
     </div>
   </div>
@@ -14,7 +14,8 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 
-import LHDropdown from './LHDropdown.vue';
+import LHDropdownItem from './LHDropdownItem.vue';
+
 const props = defineProps({
   color: {
     type: String,
@@ -23,6 +24,9 @@ const props = defineProps({
       // The value must match one of these strings
       return ['slate', 'red', 'orange', 'yellow', 'blue'].includes(value);
     },
+  },
+  label: {
+    type: String,
   },
 });
 
@@ -57,4 +61,8 @@ switch (props.color) {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.dropdown-items {
+  min-width: 160px;
+}
+</style>

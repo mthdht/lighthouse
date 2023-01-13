@@ -15,32 +15,15 @@ import LHDropdownItem from './components/LHDropdownItem.vue';
 <template>
   <h1>test components</h1>
 
-  <div class="m-4">
-    <LHParagraph>
-      test paragraph
-      <LHTooltip>
-        a tooltip
-        <template #info> Le text a montrer encore plus long </template>
-      </LHTooltip>
-
-      autre texte
-    </LHParagraph>
-
-    <LHParagraph>
-      <LHAvatar size="6xl"></LHAvatar>
-      test paragraph with fkhjghhj hgh gh hg h hgh
-      <LHTooltip placement="auto" color="blue">
-        a tooltip a montrer encore plus long
-        <template #info> Le text </template>
-      </LHTooltip>
-
-      autre texte
-    </LHParagraph>
-
+  <div class="m-4 flex justify-around">
     <LHButton hover mode="outlined" color="blue">un boutton</LHButton>
 
-    <LHDropdown class="mt-4">
-      <template #label>appuyer pour ouvrir</template>
+    <LHDropdown class="">
+      <template #label>it works!</template>
+
+      <LHDropdownItem>Un item</LHDropdownItem>
+      <LHDropdownItem>Un item 2</LHDropdownItem>
+      <LHDropdownItem>Un item 3 fjhjkgh jghjg </LHDropdownItem>
     </LHDropdown>
   </div>
 </template>

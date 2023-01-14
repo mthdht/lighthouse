@@ -13,29 +13,28 @@ import LHDropdownItem from './components/LHDropdownItem.vue';
 </script>
 
 <template>
-  <h1>test components</h1>
+  <div class="m-4">
+    <h1 class="mb-6">test components</h1>
 
-  <LHAlert color="slate" mode="outlined"> merci </LHAlert>
-  <LHAlert color="red" mode="outlined"> merci </LHAlert>
-  <LHAlert color="orange" mode="outlined"> merci </LHAlert>
-  <LHAlert color="yellow" mode="outlined"> merci </LHAlert>
-  <LHAlert color="green" mode="outlined"> merci </LHAlert>
-  <LHAlert color="blue" mode="outlined"> merci </LHAlert>
-  <LHAlert color="" mode="outlined"> merci </LHAlert>
+    <LHAlert color="green" mode="light"> merci </LHAlert>
 
-  <p>
-    dfg dfgfdgfgf gdfg <LHTooltip>ok</LHTooltip>
-    <LHButton hover>ookodfr</LHButton>
-  </p>
+    <p class="my-6">
+      dfg dfgfdgfgf gdfg
+      <LHTooltip>
+        un tooltip
+        <template #info>le pop up</template>
+      </LHTooltip>
+    </p>
 
-  <div class="m-4 flex justify-around">
-    <LHButton hover mode="outlined" color="blue">un boutton</LHButton>
+    <LHButton mode="plain" color="blue" rounded="md">un boutton</LHButton>
 
-    <LHDropdown class="" color="orange" label="fonctionne" rounded margin>
+    <LHDropdown class="my-6" color="orange" label="fonctionne" rounded>
       <LHDropdownItem>Un item</LHDropdownItem>
       <LHDropdownItem>Un item 2</LHDropdownItem>
       <LHDropdownItem>Un item 3 fjhjkgh jghjg </LHDropdownItem>
     </LHDropdown>
+
+    <LHAvatar size="" />
   </div>
 </template>
 

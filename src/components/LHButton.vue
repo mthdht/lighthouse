@@ -1,5 +1,5 @@
 <template>
-  <button :class="[colorClass, roundedClass]" class="px-2 py-1 font-semibold">
+  <button :class="[colorClass, roundedClass]" class="px-4 py-2 font-semibold">
     <slot></slot>
   </button>
 </template>
@@ -26,10 +26,10 @@ const props = defineProps({
   },
   rounded: {
     type: String,
-    default: 'none',
+    default: '',
     validator(value) {
       // The value must match one of these strings
-      return ['none', 'normal', 'medium', 'large'].includes(value);
+      return ['', 'none', 'normal', 'medium', 'large'].includes(value);
     },
   },
   hover: {
@@ -154,7 +154,7 @@ switch (props.rounded) {
     roundedClass = 'rounded-lg';
     break;
   default:
-    roundedClass = 'rounded';
+    roundedClass = '';
     break;
 }
 </script>

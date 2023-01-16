@@ -2,10 +2,9 @@
   <div class="relative">
     <LHButton
       hover
-      class="dropdown-button px-4 py-2"
+      class="dropdown-button"
       :color="props.color"
       :class="labelClass"
-      :rounded="props.rounded && props.margin ? 'rounded' : ''"
       @mouseenter="showTooltip = true"
       @mouseleave="showTooltip = false"
     >
@@ -51,8 +50,15 @@ const props = defineProps({
   },
 });
 
+let colorClass = '';
+const showTooltip = ref(false);
+
 const labelClass = computed(() => {
-  return props.rounded && !props.margin ? 'rounded-t' : '';
+  if (props.rounded && !props.margin && showTooltip.value) {
+    return 'rounded-t';
+  } else if (props.rounded) {
+    return 'rounded';
+  }
 });
 
 const itemClass = computed(() => {
@@ -60,11 +66,12 @@ const itemClass = computed(() => {
     ? 'rounded-b'
     : props.rounded && props.margin
     ? 'rounded mt-2'
+    : props.rounded
+    ? 'rounded'
+    : props.margin
+    ? 'mt-2'
     : '';
 });
-
-let colorClass = '';
-const showTooltip = ref(false);
 
 switch (props.color) {
   case 'slate':
@@ -96,8 +103,9 @@ switch (props.color) {
 </script>
 
 <style scoped>
-.dropdown-items {
+/*.dropdown-items,
+.dropdown-button {
   transition-property: all;
   transition-duration: 500ms;
-}
+}*/
 </style>

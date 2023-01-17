@@ -4,4 +4,10 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref, computed } from 'vue';
+
+const colorClass = computed(() => {
+  return 'orange';
+});
+</script>

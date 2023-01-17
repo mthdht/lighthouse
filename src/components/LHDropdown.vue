@@ -13,11 +13,11 @@
 
     <div
       class="dropdown-items absolute whitespace-nowrap"
-      :class="[colorClass, itemClass, showTooltip ? 'visible' : 'invisible']"
+      :class="[colorClass, roundedClass, showTooltip ? 'visible' : 'invisible']"
       @mouseenter="showTooltip = true"
       @mouseleave="showTooltip = false"
     >
-      <slot></slot>
+      <slot :color="props.color"></slot>
     </div>
   </div>
 </template>
@@ -50,7 +50,6 @@ const props = defineProps({
   },
 });
 
-let colorClass = '';
 const showTooltip = ref(false);
 
 const labelClass = computed(() => {
@@ -61,7 +60,7 @@ const labelClass = computed(() => {
   }
 });
 
-const itemClass = computed(() => {
+const roundedClass = computed(() => {
   return props.rounded && !props.margin
     ? 'rounded-b'
     : props.rounded && props.margin
@@ -73,39 +72,41 @@ const itemClass = computed(() => {
     : '';
 });
 
-switch (props.color) {
-  case 'slate':
-    colorClass = 'bg-slate-300';
-    break;
-  case 'red':
-    colorClass = 'bg-red-300';
-    break;
+const colorClass = computed(() => {
+  switch (props.color) {
+    case 'slate':
+      return 'bg-slate-300';
+      break;
+    case 'red':
+      return 'bg-red-300';
+      break;
 
-  case 'orange':
-    colorClass = 'bg-orange-300';
-    break;
+    case 'orange':
+      colorClass = 'bg-orange-300';
+      break;
 
-  case 'yellow':
-    colorClass = 'bg-yellow-300';
-    break;
+    case 'yellow':
+      colorClass = 'bg-yellow-300';
+      break;
 
-  case 'green':
-    colorClass = 'bg-green-300';
-    break;
+    case 'green':
+      colorClass = 'bg-green-300';
+      break;
 
-  case 'blue':
-    colorClass = 'bg-blue-300';
-    break;
-  default:
-    colorClass = 'bg-slate-50';
-    break;
-}
+    case 'blue':
+      colorClass = 'bg-blue-300';
+      break;
+    default:
+      colorClass = 'bg-slate-50';
+      break;
+  }
+});
 </script>
 
 <style scoped>
-/*.dropdown-items,
+.dropdown-items,
 .dropdown-button {
   transition-property: all;
   transition-duration: 500ms;
-}*/
+}
 </style>

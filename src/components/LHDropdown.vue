@@ -1,5 +1,5 @@
 <template>
-  <div class="relative">
+  <div class="relative inline-block">
     <LHButton
       hover
       class="dropdown-button"
@@ -13,7 +13,11 @@
 
     <div
       class="dropdown-items absolute whitespace-nowrap overflow-hidden"
-      :class="[roundedClass, showTooltip ? 'visible' : 'invisible']"
+      :class="[
+        roundedClass,
+        placementClass,
+        showTooltip ? 'visible' : 'invisible',
+      ]"
       @mouseenter="showTooltip = true"
       @mouseleave="showTooltip = false"
     >
@@ -46,6 +50,9 @@ const props = defineProps({
     default: false,
   },
   margin: {
+    type: Boolean,
+  },
+  right: {
     type: Boolean,
   },
 });
@@ -100,6 +107,10 @@ const colorClass = computed(() => {
       return 'bg-slate-50';
       break;
   }
+});
+
+const placementClass = computed(() => {
+  return props.right ? 'right-0' : '';
 });
 </script>
 

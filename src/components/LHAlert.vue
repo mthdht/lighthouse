@@ -18,7 +18,7 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
 const open = ref(true);
 
@@ -53,7 +53,6 @@ const props = defineProps({
 });
 
 let colorClass = '';
-let roundedClass = '';
 let dismissClass = '';
 
 function close() {
@@ -158,23 +157,25 @@ switch (props.color) {
     break;
 }
 
-switch (props.rounded) {
-  case 'none':
-    roundedClass = 'rounded-none';
-    break;
-  case 'normal':
-    roundedClass = 'rounded';
-    break;
-  case 'medium':
-    roundedClass = 'rounded-md';
-    break;
-  case 'large':
-    roundedClass = 'rounded-lg';
-    break;
-  default:
-    roundedClass = 'rounded';
-    break;
-}
+const roundedClass = computed(() => {
+  switch (props.rounded) {
+    case 'none':
+      return 'rounded-none';
+      break;
+    case 'normal':
+      return 'rounded';
+      break;
+    case 'medium':
+      return 'rounded-md';
+      break;
+    case 'large':
+      return 'rounded-lg';
+      break;
+    default:
+      return 'rounded';
+      break;
+  }
+});
 </script>
 
 <style scoped></style>

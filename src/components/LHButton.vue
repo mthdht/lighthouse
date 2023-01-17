@@ -8,6 +8,8 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 
+import { computed } from 'vue';
+
 const props = defineProps({
   color: {
     type: String,
@@ -38,125 +40,142 @@ const props = defineProps({
   },
 });
 
-let colorClass = 'slate';
-let roundedClass = 'rounded';
+const colorClass = computed(() => {
+  let color = '';
+  switch (props.color) {
+    case 'slate':
+      if (props.mode == 'plain') {
+        color = 'bg-slate-500 text-white';
+        props.hover ? (color += ' hover:bg-slate-600') : '';
+        return color;
+      }
+      if (props.mode == 'light') {
+        color = 'bg-slate-100 text-slate-800';
+        props.hover ? (color += ' hover:bg-slate-200') : '';
+        return color;
+      }
+      if (props.mode == 'outlined') {
+        color = 'text-slate-600 border-2 border-slate-500';
+        props.hover ? (color += ' hover:bg-slate-500 hover:text-white') : '';
+        return color;
+      }
+      break;
+    case 'red':
+      if (props.mode == 'plain') {
+        color = 'bg-red-500 text-white';
+        props.hover ? (color += ' hover:bg-red-600') : '';
+        return color;
+      }
+      if (props.mode == 'light') {
+        color = 'bg-red-200 text-red-900';
+        props.hover ? (color += ' hover:bg-red-300') : '';
+        return color;
+      }
+      if (props.mode == 'outlined') {
+        color = 'border-2 border-red-500 text-red-600';
+        props.hover ? (color += ' hover:bg-red-500 hover:text-white') : '';
+        return color;
+      }
+      break;
 
-switch (props.color) {
-  case 'slate':
-    if (props.mode == 'plain') {
-      colorClass = 'bg-slate-500 text-white';
-      props.hover ? (colorClass += ' hover:bg-slate-600') : '';
-    }
-    if (props.mode == 'light') {
-      colorClass = 'bg-slate-100 text-slate-800';
-      props.hover ? (colorClass += ' hover:bg-slate-200') : '';
-    }
-    if (props.mode == 'outlined') {
-      colorClass = 'text-slate-600 border-2 border-slate-500';
-      props.hover ? (colorClass += ' hover:bg-slate-500 hover:text-white') : '';
-    }
-    break;
-  case 'red':
-    if (props.mode == 'plain') {
-      colorClass = 'bg-red-500 text-white';
-      props.hover ? (colorClass += ' hover:bg-red-600') : '';
-    }
-    if (props.mode == 'light') {
-      colorClass = 'bg-red-200 text-red-900';
-      props.hover ? (colorClass += ' hover:bg-red-300') : '';
-    }
-    if (props.mode == 'outlined') {
-      colorClass = 'border-2 border-red-500 text-red-600';
-      props.hover ? (colorClass += ' hover:bg-red-500 hover:text-white') : '';
-    }
-    break;
+    case 'orange':
+      if (props.mode == 'plain') {
+        color = 'bg-orange-500 text-white';
+        props.hover ? (color += ' hover:bg-orange-600') : '';
+        return color;
+      }
+      if (props.mode == 'light') {
+        color = 'bg-orange-200 text-orange-900';
+        props.hover ? (color += ' hover:bg-orange-300') : '';
+        return color;
+      }
+      if (props.mode == 'outlined') {
+        color = 'border-2 border-orange-500 text-orange-600';
+        props.hover ? (color += ' hover:bg-orange-500 hover:text-white') : '';
+        return color;
+      }
+      break;
 
-  case 'orange':
-    if (props.mode == 'plain') {
-      colorClass = 'bg-orange-500 text-white';
-      props.hover ? (colorClass += ' hover:bg-orange-600') : '';
-    }
-    if (props.mode == 'light') {
-      colorClass = 'bg-orange-200 text-orange-900';
-      props.hover ? (colorClass += ' hover:bg-orange-300') : '';
-    }
-    if (props.mode == 'outlined') {
-      colorClass = 'border-2 border-orange-500 text-orange-600';
-      props.hover
-        ? (colorClass += ' hover:bg-orange-500 hover:text-white')
-        : '';
-    }
-    break;
+    case 'yellow':
+      if (props.mode == 'plain') {
+        color = 'bg-yellow-500 text-white';
+        props.hover ? (color += ' hover:bg-yellow-600') : '';
+        return color;
+      }
+      if (props.mode == 'light') {
+        color = 'bg-yellow-200 text-yellow-900';
+        props.hover ? (color += ' hover:bg-yellow-300') : '';
+        return color;
+      }
+      if (props.mode == 'outlined') {
+        color = 'border-2 border-yellow-500 text-yellow-600';
+        props.hover ? (color += ' hover:bg-yellow-500 hover:text-white') : '';
+        return color;
+      }
+      break;
 
-  case 'yellow':
-    if (props.mode == 'plain') {
-      colorClass = 'bg-yellow-500 text-white';
-      props.hover ? (colorClass += ' hover:bg-yellow-600') : '';
-    }
-    if (props.mode == 'light') {
-      colorClass = 'bg-yellow-200 text-yellow-900';
-      props.hover ? (colorClass += ' hover:bg-yellow-300') : '';
-    }
-    if (props.mode == 'outlined') {
-      colorClass = 'border-2 border-yellow-500 text-yellow-600';
-      props.hover
-        ? (colorClass += ' hover:bg-yellow-500 hover:text-white')
-        : '';
-    }
-    break;
+    case 'green':
+      if (props.mode == 'plain') {
+        color = 'bg-green-500 text-white';
+        props.hover ? (color += ' hover:bg-green-600') : '';
+        return color;
+      }
+      if (props.mode == 'light') {
+        color = 'bg-green-200 text-green-900';
+        props.hover ? (color += ' hover:bg-green-300') : '';
+        return color;
+      }
+      if (props.mode == 'outlined') {
+        color = 'border-2 border-green-500 text-green-600';
+        props.hover ? (color += ' hover:bg-green-500 hover:text-white') : '';
+        return color;
+      }
+      break;
 
-  case 'green':
-    if (props.mode == 'plain') {
-      colorClass = 'bg-green-500 text-white';
-      props.hover ? (colorClass += ' hover:bg-green-600') : '';
-    }
-    if (props.mode == 'light') {
-      colorClass = 'bg-green-200 text-green-900';
-      props.hover ? (colorClass += ' hover:bg-green-300') : '';
-    }
-    if (props.mode == 'outlined') {
-      colorClass = 'border-2 border-green-500 text-green-600';
-      props.hover ? (colorClass += ' hover:bg-green-500 hover:text-white') : '';
-    }
-    break;
+    case 'blue':
+      if (props.mode == 'plain') {
+        color = 'bg-blue-500 text-white';
+        props.hover ? (color += ' hover:bg-blue-600') : '';
+        return color;
+      }
+      if (props.mode == 'light') {
+        color = 'bg-blue-200 text-blue-900';
+        props.hover ? (color += ' hover:bg-blue-300') : '';
+        return color;
+      }
+      if (props.mode == 'outlined') {
+        color = 'border-2 border-blue-500 text-blue-600';
+        props.hover ? (color += ' hover:bg-blue-500 hover:text-white') : '';
+        return color;
+      }
+      break;
+    default:
+      color = 'bg-slate-100 text-slate-800';
+      props.hover ? (color += ' hover:bg-slate-200') : '';
+      return color;
+      break;
+  }
+});
 
-  case 'blue':
-    if (props.mode == 'plain') {
-      colorClass = 'bg-blue-500 text-white';
-      props.hover ? (colorClass += ' hover:bg-blue-600') : '';
-    }
-    if (props.mode == 'light') {
-      colorClass = 'bg-blue-200 text-blue-900';
-      props.hover ? (colorClass += ' hover:bg-blue-300') : '';
-    }
-    if (props.mode == 'outlined') {
-      colorClass = 'border-2 border-blue-500 text-blue-600';
-      props.hover ? (colorClass += ' hover:bg-blue-500 hover:text-white') : '';
-    }
-    break;
-  default:
-    colorClass = 'bg-slate-100 text-slate-800';
-    props.hover ? (colorClass += ' hover:bg-slate-200') : '';
-    break;
-}
-
-switch (props.rounded) {
-  case 'none':
-    roundedClass = 'rounded-none';
-    break;
-  case 'normal':
-    roundedClass = 'rounded';
-    break;
-  case 'medium':
-    roundedClass = 'rounded-md';
-    break;
-  case 'large':
-    roundedClass = 'rounded-lg';
-    break;
-  default:
-    roundedClass = '';
-    break;
-}
+const RoundedClass = computed(() => {
+  switch (props.rounded) {
+    case 'none':
+      return 'rounded-none';
+      break;
+    case 'normal':
+      return 'rounded';
+      break;
+    case 'medium':
+      return 'rounded-md';
+      break;
+    case 'large':
+      return 'rounded-lg';
+      break;
+    default:
+      return '';
+      break;
+  }
+});
 </script>
 
 <style scoped></style>

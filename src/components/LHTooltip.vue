@@ -46,35 +46,36 @@ const popper = ref();
 
 const showTooltip = ref(false);
 
-let colorClass = '';
 
-switch (props.color) {
-  case 'slate':
-    colorClass = 'bg-slate-500 text-white';
-    break;
-  case 'red':
-    colorClass = 'bg-red-500 text-white';
-    break;
+const colorClass = computed(() => {
+  switch (props.color) {
+    case 'slate':
+      return 'bg-slate-500 text-white';
+      break;
+    case 'red':
+      return 'bg-red-500 text-white';
+      break;
 
-  case 'orange':
-    colorClass = 'bg-orange-500 text-white';
-    break;
+    case 'orange':
+      return 'bg-orange-500 text-white';
+      break;
 
-  case 'yellow':
-    colorClass = 'bg-yellow-500 text-white';
-    break;
+    case 'yellow':
+      return 'bg-yellow-500 text-white';
+      break;
 
-  case 'green':
-    colorClass = 'bg-green-500 text-white';
-    break;
+    case 'green':
+      return 'bg-green-500 text-white';
+      break;
 
-  case 'blue':
-    colorClass = 'bg-blue-500 text-white';
-    break;
-  default:
-    colorclass = 'bg-slate-700 text-white';
-    break;
-}
+    case 'blue':
+      return 'bg-blue-500 text-white';
+      break;
+    default:
+      return 'bg-slate-700 text-white';
+      break;
+  }
+});
 
 onMounted(() => {
   tooltip(trigger.value, popper.value, {

@@ -30,10 +30,10 @@ import LHDropdownItem from './components/LHDropdownItem.vue';
       >un boutton</LHButton
     >
 
-    <LHDropdown class="my-6" color="slate" label="fonctionne" rounded>
-      <LHDropdownItem color="slate">Un item</LHDropdownItem>
-      <LHDropdownItem color="slate">Un item 2</LHDropdownItem>
-      <LHDropdownItem color="slate">Un item 3 fjhjkgh jghjg </LHDropdownItem>
+    <LHDropdown class="my-6" color="" label="fonctionne" rounded>
+      <LHDropdownItem color="">Un item</LHDropdownItem>
+      <LHDropdownItem color="">Un item 2</LHDropdownItem>
+      <LHDropdownItem color="">Un item 3 fjhjkgh jghjg </LHDropdownItem>
     </LHDropdown>
 
     <LHAvatar size="" />

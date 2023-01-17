@@ -45,7 +45,7 @@ switch (props.color) {
   case 'slate':
     if (props.mode == 'plain') {
       colorClass = 'bg-slate-500 text-white';
-      props.hover ? (colorClass += ' hover:bg-slate-400') : '';
+      props.hover ? (colorClass += ' hover:bg-slate-600') : '';
     }
     if (props.mode == 'light') {
       colorClass = 'bg-slate-100 text-slate-800';

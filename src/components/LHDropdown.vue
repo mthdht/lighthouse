@@ -13,11 +13,11 @@
 
     <div
       class="dropdown-items absolute whitespace-nowrap"
-      :class="[colorClass, roundedClass, showTooltip ? 'visible' : 'invisible']"
+      :class="[roundedClass, showTooltip ? 'visible' : 'invisible']"
       @mouseenter="showTooltip = true"
       @mouseleave="showTooltip = false"
     >
-      <slot :color="props.color"></slot>
+      <slot></slot>
     </div>
   </div>
 </template>
@@ -82,22 +82,22 @@ const colorClass = computed(() => {
       break;
 
     case 'orange':
-      colorClass = 'bg-orange-300';
+      return 'bg-orange-300';
       break;
 
     case 'yellow':
-      colorClass = 'bg-yellow-300';
+      return 'bg-yellow-300';
       break;
 
     case 'green':
-      colorClass = 'bg-green-300';
+      return 'bg-green-300';
       break;
 
     case 'blue':
-      colorClass = 'bg-blue-300';
+      return 'bg-blue-300';
       break;
     default:
-      colorClass = 'bg-slate-50';
+      return 'bg-slate-50';
       break;
   }
 });

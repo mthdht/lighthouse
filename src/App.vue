@@ -31,9 +31,9 @@ import LHDropdownItem from './components/LHDropdownItem.vue';
     >
 
     <LHDropdown class="my-6" color="slate" label="fonctionne" rounded>
-      <LHDropdownItem>Un item</LHDropdownItem>
-      <LHDropdownItem>Un item 2</LHDropdownItem>
-      <LHDropdownItem>Un item 3 fjhjkgh jghjg </LHDropdownItem>
+      <LHDropdownItem color="slate">Un item</LHDropdownItem>
+      <LHDropdownItem color="slate">Un item 2</LHDropdownItem>
+      <LHDropdownItem color="slate">Un item 3 fjhjkgh jghjg </LHDropdownItem>
     </LHDropdown>
 
     <LHAvatar size="" />

@@ -1,5 +1,5 @@
 <template>
-  <div class="dropdown-item px-4 py-2">
+  <div class="dropdown-item px-4 py-2" :class="colorClass">
     <slot></slot>
   </div>
 </template>
@@ -7,7 +7,39 @@
 <script setup>
 import { ref, computed } from 'vue';
 
+const props = defineProps({
+  color: {
+    type: String,
+  },
+});
+
 const colorClass = computed(() => {
-  return 'orange';
+  switch (props.color) {
+    case 'slate':
+      return 'bg-slate-300 hover:bg-slate-400';
+      break;
+    case 'red':
+      return 'bg-red-300';
+      break;
+
+    case 'orange':
+      return 'bg-orange-300';
+      break;
+
+    case 'yellow':
+      return 'bg-yellow-300';
+      break;
+
+    case 'green':
+      return 'bg-green-300';
+      break;
+
+    case 'blue':
+      return 'bg-blue-300';
+      break;
+    default:
+      return 'bg-slate-50';
+      break;
+  }
 });
 </script>

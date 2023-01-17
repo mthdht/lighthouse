@@ -19,7 +19,7 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import tooltip from '@/utils/popper.js';
 
 const props = defineProps({
@@ -45,7 +45,6 @@ const trigger = ref();
 const popper = ref();
 
 const showTooltip = ref(false);
-
 
 const colorClass = computed(() => {
   switch (props.color) {

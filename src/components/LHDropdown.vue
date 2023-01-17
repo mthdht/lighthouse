@@ -12,7 +12,7 @@
     </LHButton>
 
     <div
-      class="dropdown-items absolute whitespace-nowrap"
+      class="dropdown-items absolute whitespace-nowrap overflow-hidden"
       :class="[roundedClass, showTooltip ? 'visible' : 'invisible']"
       @mouseenter="showTooltip = true"
       @mouseleave="showTooltip = false"

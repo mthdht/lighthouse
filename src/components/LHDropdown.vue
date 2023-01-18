@@ -2,7 +2,7 @@
   <div class="relative inline-block">
     <LHButton
       hover
-      class="dropdown-button"
+      class="dropdown-button ease-in-out transition-all duration-500"
       :color="props.color"
       :class="labelClass"
       @mouseenter="!props.click ? (showTooltip = true) : null"
@@ -13,10 +13,19 @@
     </LHButton>
 
     <div
-      class="dropdown-items absolute whitespace-nowrap overflow-hidden"
+      class="
+        dropdown-items
+        absolute
+        whitespace-nowrap
+        overflow-hidden
+        ease-in-out
+        transition-all
+        duration-500
+      "
       :class="[
         roundedClass,
         placementClass,
+        transitionClass,
         showTooltip ? 'visible' : 'invisible',
       ]"
       @mouseenter="showTooltip = true"
@@ -56,7 +65,7 @@ const props = defineProps({
   },
   margin: {
     type: Boolean,
-    default: true,
+    default: false,
   },
   right: {
     type: Boolean,
@@ -119,12 +128,10 @@ const colorClass = computed(() => {
 const placementClass = computed(() => {
   return props.right ? 'right-0' : '';
 });
+
+const transitionClass = computed(() => {
+  return showTooltip.value ? 'opacity-100' : 'opacity-0';
+});
 </script>
 
-<style scoped>
-.dropdown-items,
-.dropdown-button {
-  transition-property: all;
-  transition-duration: 500ms;
-}
-</style>
+<style scoped></style>

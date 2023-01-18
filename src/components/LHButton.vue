@@ -178,4 +178,8 @@ const RoundedClass = computed(() => {
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+button {
+  transition: background-color 0.5s ease;
+}
+</style>

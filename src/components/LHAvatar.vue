@@ -1,13 +1,5 @@
 <template>
-  <div
-    class="
-      avatar-container
-      inline-block
-      rounded-full
-      overflow-hidden
-      bg-blue-500
-    "
-  >
+  <div class="avatar-container inline-block rounded-full overflow-hidden">
     <img
       :src="props.src"
       :alt="props.alt"

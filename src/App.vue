@@ -20,7 +20,7 @@ import LHDropdownItem from './components/LHDropdownItem.vue';
 
     <p class="my-6">
       dfg dfgfdgfgf gdfg
-      <LHTooltip>
+      <LHTooltip placement="bottom">
         un tooltip
         <template #info>le pop up</template>
       </LHTooltip>

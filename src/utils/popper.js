@@ -89,7 +89,7 @@ function placementBottom(trigger, popper) {
       popper.getBoundingClientRect().width) /
       2 +
     'px';
-  popper.style.top = trigger.getBoundingClientRect().height + 15 + 'px';
+  popper.style.top = trigger.getBoundingClientRect().height + 10 + 'px';
 }
 
 function placementLeft(trigger, popper) {

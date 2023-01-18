@@ -6,13 +6,17 @@
     @mouseleave="showTooltip = false"
   >
     <slot></slot>
-    <div
-      class="absolute whitespace-nowrap px-2 py-1 text-white rounded z-10"
-      :class="[colorClass, showTooltip ? 'visible' : 'invisible']"
-      ref="popper"
-    >
-      <slot name="info"></slot>
-    </div>
+
+    <transition>
+      <div
+        v-show="showTooltip"
+        class="absolute whitespace-nowrap px-2 py-1 text-white rounded z-10"
+        :class="[colorClass]"
+        ref="popper"
+      >
+        <slot name="info"></slot>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -77,10 +81,29 @@ const colorClass = computed(() => {
 });
 
 onMounted(() => {
+  popper.value.style.display = 'block';
   tooltip(trigger.value, popper.value, {
     placement: props.placement,
   });
+  popper.value.style.display = 'none';
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+  visibility: invisible;
+}
+
+.v-enter-to,
+.v-leave-from {
+  opacity: 1;
+  visibility: visible;
+}
+</style>

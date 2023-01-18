@@ -1,18 +1,20 @@
 <template>
-  <div
-    v-show="open"
-    :class="[colorClass, roundedClass]"
-    class="p-4 font-semibold shadow-md relative"
-  >
-    <font-awesome-icon
-      v-if="props.dismissable"
-      @click="close"
-      icon="fa-solid fa-xmark"
-      class="absolute right-4 w-5 h-5 rounded p-1 cursor-pointer"
-      :class="dismissClass"
-    />
-    <slot></slot>
-  </div>
+  <transition>
+    <div
+      v-show="open"
+      :class="[colorClass, roundedClass]"
+      class="p-4 font-semibold shadow-md relative"
+    >
+      <font-awesome-icon
+        v-if="props.dismissable"
+        @click="open = false"
+        icon="fa-solid fa-xmark"
+        class="absolute right-4 w-5 h-5 rounded p-1 cursor-pointer"
+        :class="dismissClass"
+      />
+      <slot></slot>
+    </div>
+  </transition>
 </template>
 
 <script setup>
@@ -54,10 +56,6 @@ const props = defineProps({
 
 let colorClass = '';
 let dismissClass = '';
-
-function close() {
-  open.value = false;
-}
 
 switch (props.color) {
   case 'slate':
@@ -178,4 +176,19 @@ const roundedClass = computed(() => {
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+.v-enter-to,
+.v-leave-from {
+  opacity: 1;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.7s ease;
+}
+</style>

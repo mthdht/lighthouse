@@ -5,34 +5,23 @@
       class="dropdown-button ease-in-out transition-all duration-500"
       :color="props.color"
       :class="labelClass"
-      @mouseenter="!props.click ? (showTooltip = true) : null"
-      @mouseleave="!props.click ? (showTooltip = false) : null"
-      @click="props.click ? (showTooltip = !showTooltip) : null"
+      @mouseenter="!props.click ? (showItems = true) : null"
+      @mouseleave="!props.click ? (showItems = false) : null"
+      @click="props.click ? (showItems = !showItems) : null"
     >
       <slot name="label">{{ props.label ?? 'Add a label' }}</slot>
     </LHButton>
-
-    <div
-      class="
-        dropdown-items
-        absolute
-        whitespace-nowrap
-        overflow-hidden
-        ease-in-out
-        transition-all
-        duration-500
-      "
-      :class="[
-        roundedClass,
-        placementClass,
-        transitionClass,
-        showTooltip ? 'visible' : 'invisible',
-      ]"
-      @mouseenter="showTooltip = true"
-      @mouseleave="showTooltip = false"
-    >
-      <slot></slot>
-    </div>
+    <transition>
+      <div
+        v-show="showItems"
+        class="dropdown-items absolute whitespace-nowrap overflow-hidden"
+        :class="[roundedClass, placementClass]"
+        @mouseenter="showItems = true"
+        @mouseleave="showItems = false"
+      >
+        <slot></slot>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -73,10 +62,10 @@ const props = defineProps({
   },
 });
 
-const showTooltip = ref(false);
+const showItems = ref(false);
 
 const labelClass = computed(() => {
-  if (props.rounded && !props.margin && showTooltip.value) {
+  if (props.rounded && !props.margin && showItems.value) {
     return 'rounded-t';
   } else if (props.rounded) {
     return 'rounded';
@@ -128,10 +117,21 @@ const colorClass = computed(() => {
 const placementClass = computed(() => {
   return props.right ? 'right-0' : '';
 });
-
-const transitionClass = computed(() => {
-  return showTooltip.value ? 'opacity-100' : 'opacity-0';
-});
 </script>
 
-<style scoped></style>
+<style scoped>
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+.v-enter-to,
+.v-leave-from {
+  opacity: 1;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.7s ease;
+}
+</style>

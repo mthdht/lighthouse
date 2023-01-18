@@ -5,8 +5,9 @@
       class="dropdown-button"
       :color="props.color"
       :class="labelClass"
-      @mouseenter="showTooltip = true"
-      @mouseleave="showTooltip = false"
+      @mouseenter="!props.click ? (showTooltip = true) : null"
+      @mouseleave="!props.click ? (showTooltip = false) : null"
+      @click="props.click ? (showTooltip = !showTooltip) : null"
     >
       <slot name="label">{{ props.label ?? 'Add a label' }}</slot>
     </LHButton>
@@ -42,6 +43,10 @@ const props = defineProps({
       return ['slate', 'red', 'orange', 'yellow', 'blue'].includes(value);
     },
   },
+  click: {
+    type: Boolean,
+    default: false,
+  },
   label: {
     type: String,
   },
@@ -51,9 +56,11 @@ const props = defineProps({
   },
   margin: {
     type: Boolean,
+    default: true,
   },
   right: {
     type: Boolean,
+    default: false,
   },
 });
 

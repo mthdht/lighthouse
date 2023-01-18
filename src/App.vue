@@ -30,7 +30,7 @@ import LHDropdownItem from './components/LHDropdownItem.vue';
       >un boutton</LHButton
     >
     <br />
-    <LHDropdown class="my-6" color="red" label="fonctionne" rounded right>
+    <LHDropdown class="my-6" color="red" label="fonctionne" rounded click>
       <LHDropdownItem color="red">Un item</LHDropdownItem>
       <LHDropdownItem color="red">Un item 2</LHDropdownItem>
       <LHDropdownItem color="red">Un item 3 fjhjkgh jghjg </LHDropdownItem>

@@ -76,36 +76,48 @@ function placement(direction, trigger, popper) {
 
 function placementTop(trigger, popper) {
   popper.style.left =
+    trigger.getBoundingClientRect().left +
     (trigger.getBoundingClientRect().width -
       popper.getBoundingClientRect().width) /
       2 +
     'px';
-  popper.style.top = '-' + (trigger.getBoundingClientRect().height + 15) + 'px';
+  popper.style.top =
+    trigger.getBoundingClientRect().top -
+    popper.getBoundingClientRect().height -
+    10 +
+    'px';
 }
 
 function placementBottom(trigger, popper) {
   popper.style.left =
+    trigger.getBoundingClientRect().left +
     (trigger.getBoundingClientRect().width -
       popper.getBoundingClientRect().width) /
       2 +
     'px';
-  popper.style.top = trigger.getBoundingClientRect().height + 10 + 'px';
+  popper.style.top = trigger.getBoundingClientRect().bottom + 10 + 'px';
 }
 
 function placementLeft(trigger, popper) {
   popper.style.top =
+    trigger.getBoundingClientRect().top +
     (trigger.getBoundingClientRect().height -
       popper.getBoundingClientRect().height) /
       2 +
     'px';
-  popper.style.left = '-' + (popper.getBoundingClientRect().width + 15) + 'px';
+  popper.style.left =
+    trigger.getBoundingClientRect().left -
+    popper.getBoundingClientRect().width -
+    10 +
+    'px';
 }
 
 function placementRight(trigger, popper) {
-  popper.value.style.top =
+  popper.style.top =
+    trigger.getBoundingClientRect().top +
     (trigger.getBoundingClientRect().height -
       popper.getBoundingClientRect().height) /
       2 +
     'px';
-  popper.style.left = trigger.getBoundingClientRect().width + 15 + 'px';
+  popper.style.left = trigger.getBoundingClientRect().right + 10 + 'px';
 }

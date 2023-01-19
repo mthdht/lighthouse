@@ -6,17 +6,18 @@
     @mouseleave="showTooltip = false"
   >
     <slot></slot>
-
-    <LHFadeTransition>
-      <div
-        v-show="showTooltip"
-        class="absolute whitespace-nowrap px-2 py-1 text-white rounded z-10"
-        :class="[colorClass]"
-        ref="popper"
-      >
-        <slot name="info"></slot>
-      </div>
-    </LHFadeTransition>
+    <teleport to="body">
+      <LHFadeTransition>
+        <div
+          v-show="showTooltip"
+          class="absolute px-2 py-1 text-white rounded z-10"
+          :class="[colorClass]"
+          ref="popper"
+        >
+          <slot name="info"></slot>
+        </div>
+      </LHFadeTransition>
+    </teleport>
   </div>
 </template>
 

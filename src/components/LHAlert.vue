@@ -1,5 +1,5 @@
 <template>
-  <transition>
+  <LHFadeTransition>
     <div
       v-show="open"
       :class="[colorClass, roundedClass]"
@@ -14,13 +14,14 @@
       />
       <slot></slot>
     </div>
-  </transition>
+  </LHFadeTransition>
 </template>
 
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import { ref, computed } from 'vue';
+import LHFadeTransition from './LHFadeTransition.vue';
 
 const open = ref(true);
 
@@ -176,19 +177,4 @@ const roundedClass = computed(() => {
 });
 </script>
 
-<style scoped>
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-}
-
-.v-enter-to,
-.v-leave-from {
-  opacity: 1;
-}
-
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.7s ease;
-}
-</style>
+<style scoped></style>

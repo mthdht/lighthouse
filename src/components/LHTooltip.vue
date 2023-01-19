@@ -7,7 +7,7 @@
   >
     <slot></slot>
 
-    <transition>
+    <LHFadeTransition>
       <div
         v-show="showTooltip"
         class="absolute whitespace-nowrap px-2 py-1 text-white rounded z-10"
@@ -16,7 +16,7 @@
       >
         <slot name="info"></slot>
       </div>
-    </transition>
+    </LHFadeTransition>
   </div>
 </template>
 
@@ -25,6 +25,7 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import { ref, onMounted, computed } from 'vue';
 import tooltip from '@/utils/popper.js';
+import LHFadeTransition from './LHFadeTransition.vue';
 
 const props = defineProps({
   color: {
@@ -89,21 +90,4 @@ onMounted(() => {
 });
 </script>
 
-<style scoped>
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-  visibility: invisible;
-}
-
-.v-enter-to,
-.v-leave-from {
-  opacity: 1;
-  visibility: visible;
-}
-</style>
+<style scoped></style>

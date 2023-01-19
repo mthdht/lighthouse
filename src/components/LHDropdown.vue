@@ -11,7 +11,7 @@
     >
       <slot name="label">{{ props.label ?? 'Add a label' }}</slot>
     </LHButton>
-    <transition>
+    <LHFadeTransition>
       <div
         v-show="showItems"
         class="dropdown-items absolute whitespace-nowrap overflow-hidden"
@@ -21,7 +21,7 @@
       >
         <slot></slot>
       </div>
-    </transition>
+    </LHFadeTransition>
   </div>
 </template>
 
@@ -32,6 +32,7 @@
 import { ref, computed } from 'vue';
 import LHDropdownItem from './LHDropdownItem.vue';
 import LHButton from './LHButton.vue';
+import LHFadeTransition from './LHFadeTransition.vue';
 
 const props = defineProps({
   color: {
@@ -119,19 +120,4 @@ const placementClass = computed(() => {
 });
 </script>
 
-<style scoped>
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-}
-
-.v-enter-to,
-.v-leave-from {
-  opacity: 1;
-}
-
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.7s ease;
-}
-</style>
+<style scoped></style>

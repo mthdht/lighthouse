@@ -10,6 +10,8 @@ import LHTooltip from './components/LHTooltip.vue';
 import LHAvatar from './components/LHAvatar.vue';
 import LHDropdown from './components/LHDropdown.vue';
 import LHDropdownItem from './components/LHDropdownItem.vue';
+import LHTabs from './components/LHTabs.vue';
+import LHTabsItem from './components/LHTabsItem.vue';
 </script>
 
 <template>
@@ -37,6 +39,14 @@ import LHDropdownItem from './components/LHDropdownItem.vue';
     </LHDropdown>
     <br />
     <LHAvatar size="" />
+
+    <br />
+
+    <LHTabs>
+      <LHTabsItem title="one">first</LHTabsItem>
+      <LHTabsItem title="two">second</LHTabsItem>
+      <LHTabsItem title="three">third</LHTabsItem>
+    </LHTabs>
   </div>
 </template>
 

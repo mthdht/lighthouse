@@ -42,8 +42,13 @@ import LHTabsItem from './components/LHTabsItem.vue';
 
     <br />
 
-    <LHTabs>
-      <LHTabsItem title="one">first</LHTabsItem>
+    <LHTabs color="blue" background>
+      <LHTabsItem title="one">
+        <div class="ok">
+          <p>premier tab</p>
+          <p>fonctionne</p>
+        </div>
+      </LHTabsItem>
       <LHTabsItem title="two">second</LHTabsItem>
       <LHTabsItem title="three">third</LHTabsItem>
     </LHTabs>

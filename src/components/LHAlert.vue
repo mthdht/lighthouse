@@ -5,13 +5,13 @@
       :class="[colorClass, roundedClass]"
       class="p-4 font-semibold shadow-md relative"
     >
-      <font-awesome-icon
+      <LHClose
+        :class="dismissClass"
         v-if="props.dismissable"
         @click="open = false"
-        icon="fa-solid fa-xmark"
-        class="absolute right-4 w-5 h-5 rounded p-1 cursor-pointer"
-        :class="dismissClass"
-      />
+        :color="props.color"
+      ></LHClose>
+
       <slot></slot>
     </div>
   </LHFadeTransition>
@@ -22,6 +22,7 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import { ref, computed } from 'vue';
 import LHFadeTransition from './LHFadeTransition.vue';
+import LHClose from './LHClose.vue';
 
 const open = ref(true);
 

@@ -12,13 +12,14 @@ import LHDropdown from './components/LHDropdown.vue';
 import LHDropdownItem from './components/LHDropdownItem.vue';
 import LHTabs from './components/LHTabs.vue';
 import LHTabsItem from './components/LHTabsItem.vue';
+import LHModal from './components/LHModal.vue';
 </script>
 
 <template>
   <div class="m-4">
     <h1 class="mb-6">test components</h1>
 
-    <LHAlert color="green" mode="light"> merci </LHAlert>
+    <LHAlert color="slate" mode="light"> merci </LHAlert>
 
     <p class="my-6">
       dfg dfgfdgfgf gdfg
@@ -52,6 +53,10 @@ import LHTabsItem from './components/LHTabsItem.vue';
       <LHTabsItem title="two">second</LHTabsItem>
       <LHTabsItem title="three">third</LHTabsItem>
     </LHTabs>
+
+    <LHModal label="click to open">
+      <p>It's working !</p>
+    </LHModal>
   </div>
 </template>
 

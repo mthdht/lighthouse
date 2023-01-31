@@ -42,7 +42,7 @@ import LHTabsItem from './components/LHTabsItem.vue';
 
     <br />
 
-    <LHTabs color="blue" background>
+    <LHTabs color="blue" pills background>
       <LHTabsItem title="one">
         <div class="ok">
           <p>premier tab</p>

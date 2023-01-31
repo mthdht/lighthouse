@@ -157,7 +157,7 @@ const colorClass = computed(() => {
   }
 });
 
-const RoundedClass = computed(() => {
+const roundedClass = computed(() => {
   switch (props.rounded) {
     case 'none':
       return 'rounded-none';
